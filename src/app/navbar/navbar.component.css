@@ -1,0 +1,10 @@
+.icon {
+    fill: #686b78;
+    transition: fill 0.3s ease;
+  }
+  
+.icon:hover svg, .icon:hover span{
+--tw-text-opacity: 1;
+color: rgb(255 82 0 / var(--tw-text-opacity)) /* #ff5200 */;
+fill: #ff5200;  
+}
