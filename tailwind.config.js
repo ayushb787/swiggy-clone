@@ -7,6 +7,9 @@ module.exports = {
         customOrange: '#ff5200',
         customOrange2: '#ffa700',
       },
+      fontSize: {
+        md: '1rem',
+      },
     },
   },
   plugins: [],
