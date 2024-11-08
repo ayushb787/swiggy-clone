@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
+import { CartService } from '../services/cart.service'; 
 
 @Component({
   selector: 'app-navbar',
@@ -10,7 +11,15 @@ import { Router } from '@angular/router';
 })
 export class NavbarComponent {
   @Input() cartCount: number = 0;
-  constructor(private router: Router) {}
+
+  constructor(private cartService: CartService, private router: Router) {}
+
+  ngOnInit(): void {
+    // Replace 'restaurantName' with the actual restaurant name you want to track
+    this.cartCount = this.cartService.getCartCount();
+  }
+
+
   navigateHome(): void {
     this.router.navigate(['/']);
   }

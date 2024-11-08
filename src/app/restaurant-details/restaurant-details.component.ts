@@ -1,9 +1,11 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ChangeDetectorRef } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { NavbarComponent } from '../navbar/navbar.component';
 import { CommonModule } from '@angular/common';
-import { items } from './items';
+import { items } from './items';  // Assuming 'items' is an array of Item objects
 import { restaurants } from '../restaurants/restaurants';
+import { MenuItem } from './menuitem';
+import { CartService } from '../services/cart.service'; 
 
 @Component({
   selector: 'app-restaurant-details',
@@ -25,8 +27,11 @@ export class RestaurantDetailsComponent implements OnInit {
   isBestseller: boolean = false;
   restaurant: any;
 
-  constructor(private route: ActivatedRoute) {} 
-  
+  // Load items array with Item[] type
+  items: MenuItem[] = items;
+
+  constructor(private route: ActivatedRoute, private cdr: ChangeDetectorRef) {} 
+
   ngOnInit(): void {
     const id = +this.route.snapshot.paramMap.get('id')!;
     console.log("Fetched ID from route:", id);  
@@ -40,6 +45,8 @@ export class RestaurantDetailsComponent implements OnInit {
       this.food = this.restaurant.food;
       this.location = this.restaurant.location;
       this.deliveryTime = this.restaurant.deliveryTime;
+      
+      this.loadCartItems();
     } else {
       console.error('Restaurant not found!');
     }
@@ -53,26 +60,64 @@ export class RestaurantDetailsComponent implements OnInit {
     this.isBestseller = !this.isBestseller;
   }
 
-  items = items;
-
-  toggleAdd(item: any): void {
+  toggleAdd(item: MenuItem): void {
     if (item.count === 0) {
       item.count = 1;
       this.cartCount++;
     }
+    this.saveCartData();
   }
 
-  incrementCount(item: any): void {
+  incrementCount(item: MenuItem): void {
     item.count++;
     this.cartCount++;
+    this.saveCartData();
   }
 
-  decrementCount(item: any): void {
+  decrementCount(item: MenuItem): void {
     if (item.count > 0) {
       item.count--;
       this.cartCount--;
     }
-    // console.log(item.name, ' - ', item.count);
-    // console.log('Cart count:', this.cartCount);
+    this.saveCartData();
+  }
+
+  saveCartData(): void {
+    const selectedItems = this.items.filter(item => item.count > 0);
+    const cartData = {
+      items: selectedItems,
+      cartCount: this.cartCount
+    };
+    const storedCart = JSON.parse(localStorage.getItem('cartItems') || '{}');
+    storedCart[this.restaurantName] = cartData;
+    localStorage.setItem('cartItems', JSON.stringify(storedCart));
+    localStorage.setItem('globalCartCount', JSON.stringify(this.cartCount));
+
+    this.cdr.detectChanges();
+  }
+
+  // loadCartItems(): void {
+  //   const storedCart = JSON.parse(localStorage.getItem('cartItems') || '{}');
+  //   if (storedCart[this.restaurantName]) {
+  //     const cartItems = storedCart[this.restaurantName].items;
+  //     this.items = this.items.map((item) => {
+  //       const cartItem = cartItems.find((ci: MenuItem) => ci.name === item.name);
+  //       return cartItem ? { ...item, count: cartItem.count } : item;
+  //     });
+  //     this.cartCount = storedCart[this.restaurantName].cartCount;
+  //   }
+  // }
+  loadCartItems(): void {
+    const storedCart = JSON.parse(localStorage.getItem('cartItems') || '{}');
+  
+    this.cartCount = Number(localStorage.getItem('globalCartCount')) || 0;
+  
+    if (storedCart[this.restaurantName]) {
+      const cartItems = storedCart[this.restaurantName].items;
+      this.items = this.items.map((item) => {
+        const cartItem = cartItems.find((ci: MenuItem) => ci.name === item.name);
+        return cartItem ? { ...item, count: cartItem.count } : item;
+      });
+    }
   }
 }
