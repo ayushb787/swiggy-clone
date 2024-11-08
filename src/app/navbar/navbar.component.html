@@ -1,4 +1,4 @@
-<div class="bg-white border-b-2 border-white shadow-md w-full">
+<div class="bg-white border-b-2 border-white shadow-md w-full relative">
     <div class="flex flex-row justify-between items-center align-middle ml-40 my-3 gap-x-52">
         <div class="flex flex-row justify-between align-middle items-center">
             <svg class="VXJlj mr-5" viewBox="0 0 61 61" height="49" width="49">
@@ -72,16 +72,33 @@
                 <span class="text-gray-700 text-sm font-semibold">Sign In</span>
             </div>
 
-            <div class="flex flex-row cursor-pointer icon">
-                <div class="relative">
-                    <svg class="ppAwf vZTPh mr-2" viewBox="-1 0 37 32" height="20" width="20"  [attr.fill]="cartCount > 0 ? '#60b246' : '#686b78'">
-                        <path d="M4.438 0l-2.598 5.11-1.84 26.124h34.909l-1.906-26.124-2.597-5.11z"></path>
+            <div
+                class="relative flex flex-row cursor-pointer group icon"
+                (mouseenter)="isHovered = true"
+                (mouseleave)="isHovered = false"
+                >
+                <!-- Cart Icon and Label -->
+                <div class="relative flex items-center">
+                    <svg
+                    class="ppAwf vZTPh mr-2"
+                    viewBox="-1 0 37 32"
+                    height="20"
+                    width="20"
+                    [attr.fill]="cartCount > 0 ? '#60b246' : '#686b78'"
+                    >
+                    <path d="M4.438 0l-2.598 5.11-1.84 26.124h34.909l-1.906-26.124-2.597-5.11z"></path>
                     </svg>
-                    <div class="absolute top-0 left-1.5 font-bold text-white text-sm">{{cartCount}}</div>
+                    <div class="absolute top-0 left-1.5 font-bold text-white text-sm">{{ cartCount }}</div>
                 </div>
                 <span class="text-gray-700 text-sm font-semibold">Cart</span>
-            </div>
-        </div>
 
+                <!-- Bill Component (Visible on Hover) -->
+                <div class="absolute right-0 top-full mt-2" *ngIf="isHovered">
+                    <app-bill></app-bill>
+                </div>
+                </div>
+
+        </div>
     </div>
+    <!-- <app-bill class="absolute right-36 top-full"></app-bill> -->
 </div>
