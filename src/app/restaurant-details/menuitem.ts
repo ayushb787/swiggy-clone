@@ -5,5 +5,6 @@ export interface MenuItem {
     reviews: number;
     description: string;
     imageUrl: string;
+    count: number;
   }
   

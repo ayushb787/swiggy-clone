@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 
 @Component({
@@ -9,6 +9,8 @@ import { Component } from '@angular/core';
   styleUrl: './navbar.component.css'
 })
 export class NavbarComponent {
+  @Input() cartCount: number = 0;
+  
   iconColor = '#686b78';
   onMouseOver() {
     this.iconColor = 'customOrange'; // Hover color

@@ -1,4 +1,4 @@
-<app-navbar></app-navbar>
+<app-navbar [cartCount]="cartCount"></app-navbar>
 
 
 <div class="flex flex-col justify-stretch items-center min-h-screen w-screen gap-5">
@@ -20,7 +20,9 @@
                         aria-hidden="true" strokeColor="rgba(2, 6, 12, 0.92)" fillColor="rgba(2, 6, 12, 0.92)">
                         <circle cx="10" cy="10" r="9" fill="url(#StoreRating20_svg__paint0_linear_32982_71567)">
                         </circle>
-                        <path d="..." fill="white"></path>
+                        <path
+                            d="M10.0816 12.865C10.0312 12.8353 9.96876 12.8353 9.91839 12.865L7.31647 14.3968C6.93482 14.6214 6.47106 14.2757 6.57745 13.8458L7.27568 11.0245C7.29055 10.9644 7.26965 10.9012 7.22195 10.8618L4.95521 8.99028C4.60833 8.70388 4.78653 8.14085 5.23502 8.10619L8.23448 7.87442C8.29403 7.86982 8.34612 7.83261 8.36979 7.77777L9.54092 5.06385C9.71462 4.66132 10.2854 4.66132 10.4591 5.06385L11.6302 7.77777C11.6539 7.83261 11.706 7.86982 11.7655 7.87442L14.765 8.10619C15.2135 8.14085 15.3917 8.70388 15.0448 8.99028L12.7781 10.8618C12.7303 10.9012 12.7095 10.9644 12.7243 11.0245L13.4225 13.8458C13.5289 14.2757 13.0652 14.6214 12.6835 14.3968L10.0816 12.865Z"
+                            fill="white"></path>
                         <defs>
                             <linearGradient id="StoreRating20_svg__paint0_linear_32982_71567" x1="10" y1="1" x2="10"
                                 y2="19" gradientUnits="userSpaceOnUse">
@@ -29,7 +31,7 @@
                             </linearGradient>
                         </defs>
                     </svg>
-                    <p class="mr-1 text-black text-md font-bold">{{ rating }}</p>
+                    <p class="mr-1 text-black text-md font-bold">{{ rating }} {{noOfRatings}}</p>
                     <p class="mr-1">•</p>
                     <p class="mr-1 text-black text-md font-bold">{{ offer }}</p>
                 </div>
@@ -160,13 +162,28 @@
 
 
                 <div class="relative">
-                    <img src="{{item.imageUrl}}"
-                        alt="" class=" object-cover w-40 h-36 rounded-xl">
-                        <button class="absolute -bottom-3 left-5 text-lg font-bold px-8 shadow-md py-1 bg-white border-gray-200 rounded-lg" style="color: #1BA672; border-width: 1px;">
-                            ADD
-                        </button>
-                </div>
+                    <img src="{{ item.imageUrl }}" alt="" class="object-cover w-40 h-36 rounded-xl">
 
+                    <button
+                        class="absolute -bottom-3 left-3.5 text-lg font-bold shadow-md bg-white border-gray-200 rounded-lg flex items-center justify-center w-[80%]"
+                        style="color: #1BA672; border-width: 1px;" (click)="toggleAdd(item)">
+                        <ng-container *ngIf="item.count > 0">
+                            <div class="flex items-center space-x-2" id="btn-1">
+                                <span
+                                    class="decrement bold text-lg cursor-pointer hover:bg-gray-200 py-1 px-2 rounded-l-lg"
+                                    (click)="decrementCount(item)">-</span>
+                                <span class="count text-lg px-4 py-1">{{ item.count }}</span>
+                                <span
+                                    class="increment bold text-lg cursor-pointer hover:bg-gray-200 py-1 px-2 rounded-r-lg"
+                                    (click)="incrementCount(item)">+</span>
+                            </div>
+                        </ng-container>
+
+                        <ng-container *ngIf="item.count === 0">
+                            <span class="text-lg py-1" id="btn-2">ADD</span>
+                        </ng-container>
+                    </button>
+                </div>
             </div>
             <hr class="w-full border-gray-300">
         </div>

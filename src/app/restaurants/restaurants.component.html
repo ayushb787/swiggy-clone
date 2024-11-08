@@ -49,18 +49,22 @@
         </div>
     </div>
 
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 justify-items-center">
-        <app-restaurant-card
-          *ngFor="let restaurant of restaurants"
-          [imageUrl]="restaurant.imageUrl"
-          [offer]="restaurant.offer"
-          [restaurantName]="restaurant.restaurantName"
-          [rating]="restaurant.rating"
-          [deliveryTime]="restaurant.deliveryTime"
-          [food]="restaurant.food"
-          [location]="restaurant.location">
-        </app-restaurant-card>
-      </div>
+    <div
+  class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 justify-items-center cursor-pointer">
+  <app-restaurant-card
+    *ngFor="let restaurant of restaurants"
+    [imageUrl]="restaurant.imageUrl"
+    [offer]="restaurant.offer"
+    [restaurantName]="restaurant.restaurantName"
+    [rating]="restaurant.rating"
+    [deliveryTime]="restaurant.deliveryTime"
+    [food]="restaurant.food"
+    [location]="restaurant.location"
+    (click)="goToRestaurantDetails(restaurant.id)"
+  >
+  </app-restaurant-card>
+</div>
+
       
       
 </div>
