@@ -1,29 +1,69 @@
-# Hosted at - https://swiggy-clone-git-main-ayush-bhandaris-projects.vercel.app/
+# Swiggy Clone
 
-# Swiggyclone
+Welcome to the **Swiggy Clone** project! This is a web application that replicates the functionality of Swiggy, an online food delivery platform. Below you'll find an overview of the features and components that have been implemented so far.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.2.
+## Live Demo
 
-## Development server
+You can check out the live version of the project here:  
+[Swiggy Clone - Live Demo](https://swiggy-clone-git-main-ayush-bhandaris-projects.vercel.app/)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Features Implemented
 
-## Code scaffolding
+### 🚀 **Basic Static Components:**
+- **Filters for Sorting Restaurants:**  
+  Sort restaurants based on various criteria such as:
+  - Rating
+  - Price Range
+  - Delivery Time
+  - And more...
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- **Cart Adding Mechanism:**  
+  Add food items to the cart, which is a key part of the ordering process.
 
-## Build
+- **Viewing Restaurant Menus:**  
+  View detailed menus of restaurants, including menu items, prices, and ratings.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+- **Landing Pages:**  
+  All the basic static landing pages have been created to provide a smooth user experience.
 
-## Running unit tests
+## Upcoming Features
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+- **Advanced Sorting and Filtering**: Dynamic filtering and sorting based on user preferences.
+- **User Authentication**: Sign up and login functionality.
+- **Order Placing**: Real-time order tracking and checkout process.
 
-## Running end-to-end tests
+## How to Run Locally
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+1. Clone the repository:
+    ```bash
+    git clone https://github.com/your-username/swiggy-clone.git
+    ```
 
-## Further help
+2. Navigate into the project folder:
+    ```bash
+    cd swiggy-clone
+    ```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+3. Install dependencies:
+    ```bash
+    npm install
+    ```
+
+4. Start the development server:
+    ```bash
+    npm start
+    ```
+
+Your application will be running on [http://localhost:4200](http://localhost:4200).
+
+## Contributing
+
+If you'd like to contribute, feel free to fork the repo and create a pull request. Any contributions are welcome!
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+---
+
+**Developed with 💻 by [Ayush Bhandari](https://github.com/ayushb787)**
