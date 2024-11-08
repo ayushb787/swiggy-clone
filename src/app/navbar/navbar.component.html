@@ -73,11 +73,10 @@
             </div>
 
             <div
-                class="relative flex flex-row cursor-pointer group icon"
-                (mouseenter)="isHovered = true"
-                (mouseleave)="isHovered = false"
+                class="relative flex flex-row cursor-pointer group icon z-50"
+                (mouseenter)="showBill()"
+                (mouseleave)="hideBill()"
                 >
-                <!-- Cart Icon and Label -->
                 <div class="relative flex items-center">
                     <svg
                     class="ppAwf vZTPh mr-2"
@@ -91,14 +90,12 @@
                     <div class="absolute top-0 left-1.5 font-bold text-white text-sm">{{ cartCount }}</div>
                 </div>
                 <span class="text-gray-700 text-sm font-semibold">Cart</span>
-
-                <!-- Bill Component (Visible on Hover) -->
-                <div class="absolute right-0 top-full mt-2" *ngIf="isHovered">
-                    <app-bill></app-bill>
+                
+                <div class="absolute right-0 top-full mt-2" *ngIf="isHovered" >
+                    <app-bill class="z-10"></app-bill>
                 </div>
                 </div>
 
         </div>
     </div>
-    <!-- <app-bill class="absolute right-36 top-full"></app-bill> -->
 </div>

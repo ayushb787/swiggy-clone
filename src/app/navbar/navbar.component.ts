@@ -33,4 +33,27 @@ export class NavbarComponent {
   onMouseOut() {
     this.iconColor = '#686b78';
   }
+
+
+  isBillVisible = false;
+  hideTimeout: any;
+
+  showBill() {
+    this.isHovered = true;
+    this.isBillVisible = true;
+
+    // Clear any existing timer to prevent it from hiding prematurely
+    if (this.hideTimeout) {
+      clearTimeout(this.hideTimeout);
+    }
+  }
+
+  hideBill() {
+    this.isHovered = false;
+
+    // Start a timer to delay hiding the bill component
+    this.hideTimeout = setTimeout(() => {
+      this.isBillVisible = false;
+    }, 300); // Delay in milliseconds
+  }
 }
