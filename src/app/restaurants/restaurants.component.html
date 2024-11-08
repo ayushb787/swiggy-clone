@@ -1,9 +1,9 @@
-<div class="flex flex-col justify-center align-middle items-start gap-4 mx-48">
+<div class="flex flex-col justify-center align-middle items-start gap-4 sm:mx-5 md:mx-20 lg:mx-48">
     <h1 class="text-black text-2xl font-bold">
         Restaurants with online food delivery in Chennai
     </h1>
 
-    <div class="flex flex-row justify-center align-middle items-center gap-x-2 bg-white">
+    <div class="flex flex-wrap justify-center align-middle items-center gap-x-2 gap-y-2 bg-white">
         <div class="border-gray-300 px-2 py-1 rounded-3xl flex flex-row items-center align-middle justify-center cursor-pointer" style="border-width: 1px;">
             <span *ngIf="noOfFiltersApplied > 0"  class="text-white font-semibold h-3 w-3 text-md p-3 rounded-full border-customOrange bg-customOrange flex items-center justify-center">
                 {{ noOfFiltersApplied }}
