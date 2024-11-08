@@ -1,0 +1,8 @@
+.foodCategory::-webkit-scrollbar {
+    display: none; /* Hides scrollbar in webkit-based browsers like Chrome, Safari */
+}
+
+.foodCategory {
+    -ms-overflow-style: none;  /* Hides scrollbar in IE/Edge */
+    scrollbar-width: none; /* Hides scrollbar in Firefox */
+}

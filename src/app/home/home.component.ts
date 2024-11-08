@@ -3,11 +3,12 @@ import { NavbarComponent } from '../navbar/navbar.component';
 import { FooterComponent } from '../footer/footer.component';
 import { RestaurantsComponent } from '../restaurants/restaurants.component';
 import { BestComponentComponent } from '../best-component/best-component.component';
-import { RestaurantDetailsComponent } from '../restaurant-details/restaurant-details.component';
+import { SliderComponent } from '../slider/slider.component';
+
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [NavbarComponent, FooterComponent, RestaurantsComponent, BestComponentComponent, RestaurantDetailsComponent],
+  imports: [NavbarComponent, FooterComponent, RestaurantsComponent, BestComponentComponent, SliderComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })

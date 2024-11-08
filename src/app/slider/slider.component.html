@@ -1,0 +1,107 @@
+<div class="flex flex-col mx-48 ">
+    <div class="flex justify-between px-4 pt-28">
+        <h1 class="font-bold text-[1.7rem] leading-3 tracking-tight">What's on your mind?</h1>
+        <div class="flex right-4 items-center">
+            <div (click)="handleScroll('left')" class="flex items-center bg-[#02060c26] mr-3 rounded-full p-2 cursor-pointer">
+                <img src="left-arrow.png" class="h-4 w-4 rounded-full">
+            </div>
+            <div (click)="handleScroll('right')" class="flex items-center bg-[#02060c26] rounded-full p-2 cursor-pointer">
+                
+                <img src="right-arrow.png" class="h-4 w-4 rounded-full">
+            </div>
+            <button aria-label="click here to move previous" class="sc-rPWID bPqeh"><div class="sc-dChVcU sc-izQBue gVFNwb joiqsS"><svg aria-hidden="true" height="16" width="16" class="sc-gEvEer buqVUw"><use xlink:href="/core/sprite-GPhUrejA.svg#arrowBack16"></use></svg></div></button>
+            <button aria-label="click here to move next" class="sc-rPWID bPqeh"><div class="sc-dChVcU gVFNwb"><svg aria-hidden="true" height="16" width="16" class="sc-gEvEer buqVUw"><use xlink:href="/core/sprite-GPhUrejA.svg#arrowFront16"></use></svg></div></button>
+        </div>
+    </div>
+    
+    <div class="foodCategory container-snap  flex p-4 overflow-x-auto" #scrollItem>
+        <div class="cursor-pointer flex-shrink-0 pr-6 first:pl-4">
+            <img class="h-[180px] w-[144px]"
+                src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_288,h_360/MERCHANDISING_BANNERS/IMAGES/MERCH/2024/7/2/6ef07bda-b707-48ea-9b14-2594071593d1_Pizzas.png"
+                alt="Pizzas">
+        </div>
+        <div class="cursor-pointer flex-shrink-0 pr-6 first:pl-4">
+            <img class="h-[180px] w-[144px]"
+                src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_288,h_360/MERCHANDISING_BANNERS/IMAGES/MERCH/2024/7/2/6ef07bda-b707-48ea-9b14-2594071593d1_Chinese.png"
+                alt="Chinese">
+        </div>
+        <div class="cursor-pointer flex-shrink-0 pr-6 first:pl-4">
+            <img class="h-[180px] w-[144px]"
+                src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_288,h_360/MERCHANDISING_BANNERS/IMAGES/MERCH/2024/7/2/8f508de7-e0ac-4ba8-b54d-def9db98959e_burger.png"
+                alt="Burger">
+        </div>
+        <div class="cursor-pointer flex-shrink-0 pr-6 first:pl-4">
+            <img class="h-[180px] w-[144px]"
+                src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_288,h_360/MERCHANDISING_BANNERS/IMAGES/MERCH/2024/7/2/6ef07bda-b707-48ea-9b14-2594071593d1_North%20Indian.png"
+                alt="North Indian">
+        </div>
+        <div class="cursor-pointer flex-shrink-0 pr-6 first:pl-4">
+            <img class="h-[180px] w-[144px]"
+                src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_288,h_360/MERCHANDISING_BANNERS/IMAGES/MERCH/2024/7/2/6ef07bda-b707-48ea-9b14-2594071593d1_Biryani.png"
+                alt="Biryani">
+        </div>
+        <div class="cursor-pointer flex-shrink-0 pr-6 first:pl-4">
+            <img class="h-[180px] w-[144px]"
+                src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_288,h_360/MERCHANDISING_BANNERS/IMAGES/MERCH/2024/7/2/8f508de7-e0ac-4ba8-b54d-def9db98959e_cake.png"
+                alt="Cake">
+        </div>
+        <div class="cursor-pointer flex-shrink-0 pr-6 first:pl-4">
+            <img class="h-[180px] w-[144px]"
+                src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_288,h_360/MERCHANDISING_BANNERS/IMAGES/MERCH/2024/7/2/f1263395-5d4a-4775-95dc-80ab6f3bbd89_shawarma.png"
+                alt="Shawarma">
+        </div>
+        <div class="cursor-pointer flex-shrink-0 pr-6 first:pl-4">
+            <img class="h-[180px] w-[144px]"
+                src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_288,h_360/MERCHANDISING_BANNERS/IMAGES/MERCH/2024/7/17/58760e8e-324f-479e-88fa-31800120ea38_Rolls1.png"
+                alt="Rolls">
+        </div>
+        <div class="cursor-pointer flex-shrink-0 pr-6 first:pl-4">
+            <img class="h-[180px] w-[144px]"
+                src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_288,h_360/MERCHANDISING_BANNERS/IMAGES/MERCH/2024/7/2/8f508de7-e0ac-4ba8-b54d-def9db98959e_chocolate%20icecream.png"
+                alt="Chocolate Ice Cream">
+        </div>
+        <div class="cursor-pointer flex-shrink-0 pr-6 first:pl-4">
+            <img class="h-[180px] w-[144px]"
+                src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_288,h_360/MERCHANDISING_BANNERS/IMAGES/MERCH/2024/7/2/6ef07bda-b707-48ea-9b14-2594071593d1_Kebabs.png"
+                alt="Kebabs">
+        </div>
+        <div class="cursor-pointer flex-shrink-0 pr-6 first:pl-4">
+            <img class="h-[180px] w-[144px]"
+                src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_288,h_360/MERCHANDISING_BANNERS/IMAGES/MERCH/2024/7/2/6ef07bda-b707-48ea-9b14-2594071593d1_Momos.png"
+                alt="Momos">
+        </div>
+        <div class="cursor-pointer flex-shrink-0 pr-6 first:pl-4">
+            <img class="h-[180px] w-[144px]"
+                src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_288,h_360/MERCHANDISING_BANNERS/IMAGES/MERCH/2024/7/2/8f508de7-e0ac-4ba8-b54d-def9db98959e_Pav%20Bhaji.png"
+                alt="Pav Bhaji">
+        </div>
+        <div class="cursor-pointer flex-shrink-0 pr-6 first:pl-4">
+            <img class="h-[180px] w-[144px]"
+                src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_288,h_360/MERCHANDISING_BANNERS/IMAGES/MERCH/2024/7/2/f1263395-5d4a-4775-95dc-80ab6f3bbd89_pasta.png"
+                alt="Pasta">
+        </div>
+        <div class="cursor-pointer flex-shrink-0 pr-6 first:pl-4">
+            <img class="h-[180px] w-[144px]"
+                src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_288,h_360/MERCHANDISING_BANNERS/IMAGES/MERCH/2024/7/2/8f508de7-e0ac-4ba8-b54d-def9db98959e_Pure%20Veg.png"
+                alt="Pure Veg">
+        </div>
+        <div class="cursor-pointer flex-shrink-0 pr-6 first:pl-4">
+            <img class="h-[180px] w-[144px]"
+                src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_288,h_360/MERCHANDISING_BANNERS/IMAGES/MERCH/2024/7/2/f1263395-5d4a-4775-95dc-80ab6f3bbd89_pastry.png"
+                alt="Pastry">
+        </div>
+        <div class="cursor-pointer flex-shrink-0 pr-6 first:pl-4">
+            <img class="h-[180px] w-[144px]"
+                src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_288,h_360/MERCHANDISING_BANNERS/IMAGES/MERCH/2024/7/2/6ef07bda-b707-48ea-9b14-2594071593d1_Noodles.png"
+                alt="Noodles">
+        </div>
+        <div class="cursor-pointer flex-shrink-0 pr-6 first:pl-4">
+            <img class="h-[180px] w-[144px]"
+                src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_288,h_360/MERCHANDISING_BANNERS/IMAGES/MERCH/2024/7/2/6ef07bda-b707-48ea-9b14-2594071593d1_South%20Indian.png"
+                alt="South Indian">
+        </div>
+        
+    </div>
+    
+    <hr class="border-gray-200 w-full my-10">
+</div>
